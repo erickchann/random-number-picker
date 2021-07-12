@@ -5,8 +5,108 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Number Picker</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: animate 20s infinite;
+        }
+
+        #number {
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 30rem;
+            margin: 0;
+            color: white;
+        }
+
+        button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 100px;
+            background-color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        button:hover {
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        @keyframes animate {
+            0% {
+                background-color: yellow;
+            }
+
+            20% {
+                background-color: salmon;
+            }
+            
+            40% {
+                background-color: turquoise;
+            }
+
+            60% {
+                background-color: crimson;
+            }
+
+            80% {
+                background-color: greenyellow;
+            }
+
+            100% {
+                background-color: yellow;
+            }
+        }
+
+    </style>
 </head>
 <body>
     
+    <div class="container">
+        <h1 id="number"></h1>
+
+        <button type="button" onclick="scramble()">Scramble</button>
+    </div>
+
+<script>
+
+const text = document.getElementById('number');
+
+let min = prompt('Input Min Number');
+let max = prompt('Input Max Number');
+
+function scramble() {
+    let randAnimation = setInterval(() => {
+        let rand = Math.ceil((Math.random() * max) + min);
+
+        text.innerHTML = rand;
+    }, 50);
+
+    setTimeout(() => {
+        clearInterval(randAnimation);
+    }, 1500);
+}
+
+</script>
 </body>
 </html>
