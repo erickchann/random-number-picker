@@ -28,7 +28,7 @@
         #number {
             text-align: center;
             font-family: sans-serif;
-            font-size: 30rem;
+            font-size: 50vw;
             margin: 0;
             color: white;
         }
@@ -98,7 +98,6 @@ let max = parseInt(prompt('Input Max Number'));
 function scramble() {
     let randAnimation = setInterval(() => {
         let rand = Math.ceil((Math.random() * (max - min)) + min);
-        console.log(min, max, rand)
 
         text.innerHTML = rand;
     }, 50);
